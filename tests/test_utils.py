@@ -1,25 +1,12 @@
-import pytest
-
 from code.utils import get_data, get_last_data, get_filtered_data, get_formatted_data
-from code.conftest import test_data
+import json
 
 
 def test_get_data():
     """
     Функция, котораая тестирует функцию get_data
     """
-
-    url = "https://file.notion.so/f/s/d22c7143-d55e-4f1d-aa98-e9b15e5e5efc/operations.json?spaceId=0771f0bb-b4cb-4a14-bc05-94cbd33fc70d&table=block&id=f11058ed-10ad-42ea-a13d-aad1945e5421&expirationTimestamp=1678992616942&signature=iMLCdLiDNDIsEKIz-rIzWhW-v9X53p11o1g3rNfRbX4&downloadName=operations.json"
-    assert get_data(url) is not None
-    url = "https://file.notion.so/f/s/d22c7143-d55e-4f1d-aa98-e9b15e5e5efc/operations.json?spaceId=0771f0bb-b4cb-4a14-bc05-94cbd33fc70d&table=block&id=f11058ed-10ad-42ea-a13d-aad1945e5421&expirationTimestamp=1678992616942&signature=iMLCdLiDNDIsEKIz-rIzWhW-v9X53p11o1g3rNfRbX4&downloadNam=operations.json"
-    data, info = get_data(url)
-    assert data is None
-    assert info == 'WARNING:400 Ошибка при получении данных.'
-    url = "https://fil.notion.so/f/s/d22c7143-d55e-4f1d-aa98-e9b15e5e5efc/operations.json?spaceId=0771f0bb-b4cb-4a14-bc05-94cbd33fc70d&table=block&id=f11058ed-10ad-42ea-a13d-aad1945e5421&expirationTimestamp=1678992616942&signature=iMLCdLiDNDIsEKIz-rIzWhW-v9X53p11o1g3rNfRbX4&downloadName=operations.json"
-    data, info = get_data(url)
-    assert data is None
-    assert info == 'ERROR: requests.exceptions.ConnectionError'
-
+    assert len(get_data('/Users/juliazhukova/Desktop/PycharmProjects/COURSE_WORK_3/tests/test_operations.json')) == 5
 
 def test_get_filtered_data(test_data):
     """
