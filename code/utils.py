@@ -1,19 +1,14 @@
-import requests
+import json
 from datetime import datetime
 
-def get_data(url):
+
+def get_data(filename):
 
     """ Функция, которая получает данные со списком операций клиента из файла json
-    и обрабатывает возможные ошибки"""
-
-    try:
-        response = requests.get(url)
-        if response.status_code == 200:
-            return response.json(), "Данные получены успешно!"
-        return None, f'WARNING:{response.status_code} Ошибка при получении данных.'
-    except requests.exceptions.ConnectionError:
-        return None, f"ERROR: requests.exceptions.ConnectionError"
-
+    """
+    with open(filename, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+        return data
 
 def get_filtered_data(data, filtered_empty_from=False):
 
