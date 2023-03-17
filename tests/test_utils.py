@@ -1,5 +1,4 @@
 from code.utils import get_data, get_last_data, get_filtered_data, get_formatted_data
-import json
 
 
 def test_get_data():
@@ -7,6 +6,7 @@ def test_get_data():
     Функция, котораая тестирует функцию get_data
     """
     assert len(get_data('/Users/juliazhukova/Desktop/PycharmProjects/COURSE_WORK_3/tests/test_operations.json')) == 5
+
 
 def test_get_filtered_data(test_data):
     """
